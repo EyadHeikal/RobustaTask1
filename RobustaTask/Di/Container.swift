@@ -19,8 +19,7 @@ public let container = Container(defaultObjectScope: .container) { container in
     .initCompleted { (resolver, navigationController) in
         navigationController.setViewControllers([resolver.resolve(RepositoriesViewController.self)!], animated: true)
     }
-
-
+    // MARK: RepositoriesViewController
     container.register(RepositoriesViewController.self) { resolver in
         let name = String(describing: RepositoriesViewController.self)
         let bundle = Bundle(for: RepositoriesViewController.self)
@@ -53,4 +52,24 @@ public let container = Container(defaultObjectScope: .container) { container in
     .initCompleted { (resolver, router) in
         router.navigationController = resolver.resolve(UINavigationController.self)!
     }
+
+    // MARK: RepositoryDetailsViewController
+    container.register(RepositoryDetailsViewController.self) { (resolver) in
+        let name = String(describing: RepositoryDetailsViewController.self)
+        let bundle = Bundle(for: RepositoryDetailsViewController.self)
+        let viewController = RepositoryDetailsViewController(nibName: name, bundle: bundle)
+        return viewController
+    }
+
+    container.register(RepositoryDetailsPresenter.self) { (resolver, repository: Repository) in
+        let presenter = RepositoryDetailsPresenter()
+        presenter.interactor = RepositoryDetailsInteractor()
+        presenter.router = RepositoryDetailsRouter()
+        presenter.repository = repository
+        return presenter
+    }
+    .initCompleted { (resolver, presenter) in
+        presenter.view = resolver.resolve(RepositoryDetailsViewController.self)!
+    }
+    
 }

@@ -21,6 +21,7 @@ class RepositoriesInteractor: RepositoriesInteractorProtocol {
         page: Int,
         count: Int,
         completion: @escaping (Result<[Repository], Error>) -> Void) {
+        guard key.count > 1 else { return }
 
         networkManager.loadRepositories(searchKey: key, page: page, count: count) { result in
 

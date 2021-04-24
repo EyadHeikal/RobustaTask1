@@ -23,7 +23,7 @@ class RepositoriesViewController: UIViewController {
     }
 
     private func setupView() {
-        navigationItem.title = "Search Repositories"
+        navigationItem.title = "Search"
     }
 
     private func setupTableView() {
@@ -33,7 +33,7 @@ class RepositoriesViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.allowsSelection = true
 
-        tableView.register(cellType: RepositoryCell.self)
+        tableView.register(cellType: RepositoryCell.self, EmptyCell.self)
     }
 
     private func setupSearchBar() {
@@ -65,13 +65,26 @@ extension RepositoriesViewController: RepositoriesView {
 extension RepositoriesViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.getNumberOfItems()
+        let numberOfRepositories = presenter.getNumberOfItems()
+        guard numberOfRepositories > 0 else { return 1 }
+        return numberOfRepositories
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let numberOfRepositories = presenter.getNumberOfItems()
+        guard numberOfRepositories > 0 else { return createEmptyCell(for: indexPath) }
+        return createRepositoryCell(for: indexPath)
+    }
+
+    private func createRepositoryCell(for indexPath: IndexPath) -> RepositoryCell {
         let cell = tableView.dequeueReusableCell(withType: RepositoryCell.self, for: indexPath)
         cell.bind(repository: presenter.getRepository(for: indexPath))
         presenter.loadImageData(at: indexPath)
+        return cell
+    }
+
+    private func createEmptyCell(for indexPath: IndexPath) -> EmptyCell {
+        let cell = tableView.dequeueReusableCell(withType: EmptyCell.self, for: indexPath)
         return cell
     }
 
