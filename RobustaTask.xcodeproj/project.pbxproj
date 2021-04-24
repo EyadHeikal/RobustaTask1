@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,14 @@
 		86AAC0412633F0F8000212E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86AAC03F2633F0F8000212E7 /* LaunchScreen.storyboard */; };
 		86AAC04C2633F0F9000212E7 /* RobustaTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAC04B2633F0F9000212E7 /* RobustaTaskTests.swift */; };
 		86AAC0572633F0F9000212E7 /* RobustaTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAC0562633F0F9000212E7 /* RobustaTaskUITests.swift */; };
+		86AAC08B2633FC71000212E7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAC08A2633FC71000212E7 /* Item.swift */; };
+		86AAC0932633FC96000212E7 /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAC0922633FC96000212E7 /* Owner.swift */; };
+		86AAC0982633FCD8000212E7 /* TypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAC0972633FCD8000212E7 /* TypeEnum.swift */; };
+		86AAC09D2633FE2A000212E7 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAC09C2633FE2A000212E7 /* License.swift */; };
+		86AAC0A22633FE4C000212E7 /* RepoSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAC0A12633FE4C000212E7 /* RepoSearchResponse.swift */; };
+		86AAC0A726340677000212E7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAC0A626340677000212E7 /* NetworkManager.swift */; };
+		86AAC0AC263406B2000212E7 /* JSON Coding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAC0AB263406B2000212E7 /* JSON Coding.swift */; };
+		86AAC0B1263406CB000212E7 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AAC0B0263406CB000212E7 /* AppError.swift */; };
 		8F8266172C7E9EE2A6B684F8 /* Pods_RobustaTask_RobustaTaskUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BF5E1149EF26F171643B837 /* Pods_RobustaTask_RobustaTaskUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +61,14 @@
 		86AAC0522633F0F9000212E7 /* RobustaTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RobustaTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86AAC0562633F0F9000212E7 /* RobustaTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobustaTaskUITests.swift; sourceTree = "<group>"; };
 		86AAC0582633F0F9000212E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86AAC08A2633FC71000212E7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		86AAC0922633FC96000212E7 /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
+		86AAC0972633FCD8000212E7 /* TypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeEnum.swift; sourceTree = "<group>"; };
+		86AAC09C2633FE2A000212E7 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		86AAC0A12633FE4C000212E7 /* RepoSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSearchResponse.swift; sourceTree = "<group>"; };
+		86AAC0A626340677000212E7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		86AAC0AB263406B2000212E7 /* JSON Coding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSON Coding.swift"; sourceTree = "<group>"; };
+		86AAC0B0263406CB000212E7 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		92753A04C671BAE0F0BE6A28 /* Pods-RobustaTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RobustaTask.debug.xcconfig"; path = "Target Support Files/Pods-RobustaTask/Pods-RobustaTask.debug.xcconfig"; sourceTree = "<group>"; };
 		CF71DAC9062275B3E8B76374 /* Pods_RobustaTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RobustaTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC5B437238AA85B318AF3C0D /* Pods_RobustaTaskTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RobustaTaskTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +138,11 @@
 		86AAC0332633F0F5000212E7 /* RobustaTask */ = {
 			isa = PBXGroup;
 			children = (
+				86AAC0892633FB6F000212E7 /* Utils */,
+				86AAC0882633FB0F000212E7 /* POJOs */,
+				86AAC0872633FAF2000212E7 /* NetworkManager */,
+				86AAC07F2633F7DE000212E7 /* Scenes */,
+				86AAC07E2633F7C8000212E7 /* Di */,
 				86AAC06A2633F376000212E7 /* SupportingFiles */,
 				86AAC0422633F0F8000212E7 /* Info.plist */,
 			);
@@ -157,6 +178,49 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		86AAC07E2633F7C8000212E7 /* Di */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Di;
+			sourceTree = "<group>";
+		};
+		86AAC07F2633F7DE000212E7 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		86AAC0872633FAF2000212E7 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				86AAC0A626340677000212E7 /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		86AAC0882633FB0F000212E7 /* POJOs */ = {
+			isa = PBXGroup;
+			children = (
+				86AAC08A2633FC71000212E7 /* Item.swift */,
+				86AAC0922633FC96000212E7 /* Owner.swift */,
+				86AAC0972633FCD8000212E7 /* TypeEnum.swift */,
+				86AAC09C2633FE2A000212E7 /* License.swift */,
+				86AAC0A12633FE4C000212E7 /* RepoSearchResponse.swift */,
+			);
+			path = POJOs;
+			sourceTree = "<group>";
+		};
+		86AAC0892633FB6F000212E7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				86AAC0AB263406B2000212E7 /* JSON Coding.swift */,
+				86AAC0B0263406CB000212E7 /* AppError.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		A08A4531C80E1FB05F26A0B8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,7 +231,6 @@
 				FA8018A9357EFEF4C1699550 /* Pods-RobustaTaskTests.debug.xcconfig */,
 				3CFBCBBB5E25DD3934F39F8D /* Pods-RobustaTaskTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -409,7 +472,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				86AAC0352633F0F5000212E7 /* AppDelegate.swift in Sources */,
+				86AAC0AC263406B2000212E7 /* JSON Coding.swift in Sources */,
+				86AAC0B1263406CB000212E7 /* AppError.swift in Sources */,
+				86AAC0932633FC96000212E7 /* Owner.swift in Sources */,
+				86AAC08B2633FC71000212E7 /* Item.swift in Sources */,
+				86AAC0A22633FE4C000212E7 /* RepoSearchResponse.swift in Sources */,
+				86AAC0A726340677000212E7 /* NetworkManager.swift in Sources */,
+				86AAC0982633FCD8000212E7 /* TypeEnum.swift in Sources */,
 				86AAC0372633F0F5000212E7 /* SceneDelegate.swift in Sources */,
+				86AAC09D2633FE2A000212E7 /* License.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
