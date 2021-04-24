@@ -35,16 +35,12 @@ class RepositoriesPresenter: RepositoriesPresenterProtocol {
             guard let self = self else { return }
             switch result {
                 case let .success(repositories):
-                    DispatchQueue.main.async { [weak self] in
-                        self?.repositories = repositories
-                        self?.isPaginating = false
-                        self?.pageNumber = page
-                        self?.view?.didLoadRepositoriesForTheFirstTime()
-                    }
+                    self.repositories = repositories
+                    self.isPaginating = false
+                    self.pageNumber = page
+                    self.view?.didLoadRepositoriesForTheFirstTime()
                 case .failure:
-                    DispatchQueue.main.async { [weak self] in
-                        self?.isPaginating = false
-                    }
+                    self.isPaginating = false
             }
         }
     }
@@ -61,18 +57,14 @@ class RepositoriesPresenter: RepositoriesPresenterProtocol {
             guard let self = self else { return }
             switch result {
                 case let .success(repositories):
-                    //Update repositories on Main Queue to avoid any race condition
-                    DispatchQueue.main.async { [weak self] in
-                        self?.repositories.append(contentsOf: repositories)
-                        self?.isPaginating = false
-                        self?.pageNumber = pageNumber
-                        self?.view?.didLoadMoreRepositories()
-                    }
+                    self.repositories.append(contentsOf: repositories)
+                    self.isPaginating = false
+                    self.pageNumber = pageNumber
+                    self.view?.didLoadMoreRepositories()
                 case let .failure(error):
                     print(error)
-                    DispatchQueue.main.async { [weak self] in
-                        self?.isPaginating = false
-                    }
+                    self.isPaginating = false
+
             }
         }
     }

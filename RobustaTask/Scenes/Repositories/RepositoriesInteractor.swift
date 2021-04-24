@@ -43,7 +43,9 @@ class RepositoriesInteractor: RepositoriesInteractorProtocol {
                 )
             }
 
-            let result = result.map { $0.items.map (convertRepoSearchResponseItemToRepository) }
+            let result = result.map { response -> [Repository] in
+                return response.items.map (convertRepoSearchResponseItemToRepository)
+            }
             DispatchQueue.main.async {
                 completion(result)
             }
