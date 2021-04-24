@@ -12,13 +12,13 @@ class RepositoriesPresenter: RepositoriesPresenterProtocol {
     var router: RepositoriesRouterProtocol!
     var interactor: RepositoriesInteractorProtocol!
 
-    private var repositories = [Repository]()
-    private var isPaginating = false
-    private var pageNumber = 1
-    private let count = 10
-    private var timer: Timer?
-    private var searchKey: String = .init()
-    private let maxPageCount = 100 //API fetches only 100 pages
+    var repositories = [Repository]()
+    var isPaginating = false
+    var pageNumber = 1
+    let count = 10
+    var timer: Timer?
+    var searchKey: String = .init()
+    let maxPageCount = 100 //API fetches only 100 pages
 
 
     func loadRepositories(searchKey: String) {
