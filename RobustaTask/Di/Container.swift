@@ -63,13 +63,19 @@ public let container = Container(defaultObjectScope: .container) { container in
 
     container.register(RepositoryDetailsPresenter.self) { (resolver, repository: Repository) in
         let presenter = RepositoryDetailsPresenter()
-        presenter.interactor = RepositoryDetailsInteractor()
+        presenter.interactor = resolver.resolve(RepositoryDetailsInteractor.self)!
         presenter.router = RepositoryDetailsRouter()
         presenter.repository = repository
         return presenter
     }
     .initCompleted { (resolver, presenter) in
         presenter.view = resolver.resolve(RepositoryDetailsViewController.self)!
+    }
+
+    container.register(RepositoryDetailsInteractor.self) { resolver in
+        let interactor = RepositoryDetailsInteractor()
+        interactor.networkManager = resolver.resolve(NetworkManager.self)!
+        return interactor
     }
     
 }

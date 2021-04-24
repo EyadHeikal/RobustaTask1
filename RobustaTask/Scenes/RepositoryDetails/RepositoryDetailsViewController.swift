@@ -39,5 +39,10 @@ extension RepositoryDetailsViewController: RepositoryDetailsView {
         licenseLabel.text = repository.licenseName
         languageLabel.text = repository.language
     }
+
+    func didLoad(imageData: Data) {
+        guard let image = UIImage(data: imageData) else { return }
+        repositoryImageView.image = image
+    }
 }
 

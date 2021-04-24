@@ -17,6 +17,13 @@ class RepositoryDetailsPresenter: RepositoryDetailsPresenterProtocol {
     // Not Currently Needed But In case I needed to fetch it from BackEnd
     func loadRepository() {
         view?.didLoad(repository: repository)
+
+        interactor.loadImageData(at: repository.owner.avatarURLString) { imageData in
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.view?.didLoad(imageData: imageData)
+            }
+        }
     }
 
 
